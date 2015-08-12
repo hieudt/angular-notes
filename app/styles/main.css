@@ -1,0 +1,80 @@
+html, body {
+  height: 100%;
+}
+
+.notes-container {
+  border: 1px solid #dddddd;
+  overflow: hidden;
+  height: 95%;
+  margin-top: 20px;
+}
+
+.notes-container .col-note-list {
+  padding: 0 0 32000px 0;
+  margin-bottom: -32000px;
+  border-right: 1px solid #dddddd;
+  height: 100%;
+  position: relative;
+}
+
+.notes-container .col-note-list .search-bar {
+  margin: 15px 0 10px;
+  text-align: center;
+  position: relative;
+}
+
+.notes-container .col-note-list .search-bar .note-search-input {
+  width: 90%;
+  padding: 5px 6px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.notes-container .col-note-list .list-group {
+  margin-bottom: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.notes-container .col-note-list .list-group .list-group-item {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.notes-container .col-note-list .list-group .list-group-item .modified-date {
+  font-size: 13px;
+  color: #555;
+}
+
+.notes-container .col-note-list .list-group .list-group-item.active .modified-date {
+  color: #eee;
+}
+
+.notes-container .col-note-list .list-group .list-group-item:first-child {
+  border-top: 0;
+}
+
+.notes-container .col-note-detail .toolbar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.notes-container .col-note-detail .toolbar .modified-date {
+  margin-top: 10px;
+}
+
+.notes-container .col-note-detail .editor {
+  width: 500px;
+  height: 340px;
+  border: none;
+  resize: none;
+}
+
+.notes-container .col-note-detail .editor:focus {
+  outline: none;
+}
