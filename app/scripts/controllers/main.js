@@ -121,4 +121,8 @@ angular.module('angularNotesApp')
     $scope.enableEditMode = function () {
       $scope.editMode = true;
     };
+
+    $scope.search = {
+      keyword: ''
+    };
   });

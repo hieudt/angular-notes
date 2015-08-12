@@ -59,6 +59,10 @@ body {
   color: #eee;
 }
 
+.notes-container .col-note-list .list-group .list-group-item.active .highlighted {
+  color: #555;
+}
+
 .notes-container .col-note-list .list-group .list-group-item:first-child {
   border-top: 0;
 }
@@ -89,4 +93,13 @@ body {
 
 .full-height {
   height: 100%;
+}
+
+.highlighted {
+  background-color: yellow;
+  padding: 2px 4px;
+  margin: 0 2px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }

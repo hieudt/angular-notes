@@ -13,7 +13,7 @@
 </div>
 <div class="row full-height" ng-click="enableEditMode()">
   <div class="col-sm-12 full-height editor-outer">
-    <div class="editor-preview" ng-hide="editMode">{{ selectedNote.content }}</div>
+    <div class="editor-preview" ng-hide="editMode" ng-bind-html="selectedNote.content | highlightText:search.keyword"></div>
     <textarea class="editor" ng-model="selectedNote.content" ng-show="editMode"></textarea>
   </div>
 </div>
