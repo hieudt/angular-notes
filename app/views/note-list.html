@@ -3,6 +3,7 @@
 </div>
 <div class="note-list">
   <ul class="list-group">
+    <li class="list-group-item disabled" ng-hide="!notes">No note found</li>
     <li class="list-group-item" ng-repeat="note in notes | filter:search.keyword | orderBy:'modifiedAt':true"
         ng-click="selectNote(note)"
         ng-class="{'active': note === selectedNote}">
