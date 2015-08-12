@@ -11,9 +11,9 @@
     </div>
   </div>
 </div>
-<div class="row full-height" ng-click="enableEditMode()">
+<div class="row full-height" ng-click="setEditMode(true)">
   <div class="col-sm-12 full-height editor-outer">
-    <div class="editor-preview" ng-hide="editMode" ng-bind-html="selectedNote.content | highlightText:search.keyword"></div>
-    <textarea class="editor" ng-model="selectedNote.content" ng-show="editMode"></textarea>
+    <div class="editor-preview" ng-hide="editMode" ng-bind-html="selectedNote.content | newLine | highlightText:search.keyword"></div>
+    <textarea class="editor" ng-model="selectedNote.content" ng-show="editMode" ng-blur="saveOrUpdateNote(selectedNote)"></textarea>
   </div>
 </div>

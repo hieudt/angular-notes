@@ -11,9 +11,5 @@ describe('Filter: highlightText', function () {
     highlightText = $filter('highlightText');
   }));
 
-  it('should return the input prefixed with "highlightText filter:"', function () {
-    var text = 'angularjs';
-    expect(highlightText(text)).toBe('highlightText filter: ' + text);
-  });
 
 });
