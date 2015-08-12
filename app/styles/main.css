@@ -2,25 +2,30 @@ html, body {
   height: 100%;
 }
 
+body {
+  padding: 20px 0;
+}
+
 .notes-container {
   border: 1px solid #dddddd;
   overflow: hidden;
-  height: 95%;
-  margin-top: 20px;
+  height: 100%;
 }
 
 .notes-container .col-note-list {
-  padding: 0 0 32000px 0;
-  margin-bottom: -32000px;
-  border-right: 1px solid #dddddd;
+  padding: 0;
   height: 100%;
-  position: relative;
+  border-right: 1px solid #dddddd;
+}
+
+.notes-container .col-note-list .note-list {
+  height: 100%;
+  padding-bottom: 55px;
 }
 
 .notes-container .col-note-list .search-bar {
   margin: 15px 0 10px;
   text-align: center;
-  position: relative;
 }
 
 .notes-container .col-note-list .search-bar .note-search-input {
@@ -35,7 +40,6 @@ html, body {
   margin-bottom: 0;
   max-height: 100%;
   overflow-y: auto;
-  position: relative;
 }
 
 .notes-container .col-note-list .list-group .list-group-item {
@@ -68,13 +72,21 @@ html, body {
   margin-top: 10px;
 }
 
+.notes-container .col-note-detail .editor-outer {
+  padding-bottom: 55px;
+}
+
 .notes-container .col-note-detail .editor {
-  width: 500px;
-  height: 340px;
+  width: 100%;
+  height: 100%;
   border: none;
   resize: none;
 }
 
 .notes-container .col-note-detail .editor:focus {
   outline: none;
+}
+
+.full-height {
+  height: 100%;
 }

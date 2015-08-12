@@ -18,9 +18,13 @@
   <body ng-app="angularNotesApp">
 
     <div class="container notes-container" ng-controller="MainCtrl">
-      <div class="row">
-        <div ng-include="'views/note-list.html'"></div>
-        <div ng-include="'views/note-detail.html'"></div>
+      <div class="row full-height">
+        <div class="col-sm-4 col-note-list">
+          <div ng-include="'views/note-list.html'" class="full-height"></div>
+        </div>
+        <div class="col-sm-8 col-note-detail full-height">
+          <div ng-include="'views/note-detail.html'" class="full-height"></div>
+        </div>
       </div>
     </div>
 

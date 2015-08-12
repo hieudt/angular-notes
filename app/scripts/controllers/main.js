@@ -110,8 +110,15 @@ angular.module('angularNotesApp')
       "createdAt": "2014-10-20T14:03:31Z",
       "modifiedAt": "2015-02-27T15:32:55Z"
     }];
+
     $scope.selectedNote = $scope.notes[0];
     $scope.selectNote = function (note) {
       $scope.selectedNote = note;
+      $scope.editMode = false;
+    };
+
+    $scope.editMode = false;
+    $scope.enableEditMode = function () {
+      $scope.editMode = true;
     };
   });

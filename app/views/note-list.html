@@ -1,7 +1,7 @@
-<div class="col-sm-4 col-note-list">
-  <div class="search-bar">
-    <input type="text" placeholder="Search" class="note-search-input" ng-model="searchInput">
-  </div>
+<div class="search-bar">
+  <input type="text" placeholder="Search" class="note-search-input" ng-model="searchInput">
+</div>
+<div class="note-list">
   <ul class="list-group">
     <li class="list-group-item" ng-repeat="note in notes | filter:searchInput | orderBy:'modifiedAt':true"
         ng-click="selectNote(note)"
