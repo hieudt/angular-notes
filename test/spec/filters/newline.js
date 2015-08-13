@@ -11,9 +11,4 @@ describe('Filter: newLine', function () {
     newLine = $filter('newLine');
   }));
 
-  it('should return the input prefixed with "newLine filter:"', function () {
-    var text = 'angularjs';
-    expect(newLine(text)).toBe('newLine filter: ' + text);
-  });
-
 });

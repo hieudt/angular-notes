@@ -11,6 +11,9 @@
 angular.module('angularNotesApp')
   .filter('newLine', function () {
     return function (input) {
-      return input.replace(/\n/g, '<br/>');
+      if (input) {
+        return input.replace(/\n/g, '<br/>');
+      }
+      return input;
     };
   });

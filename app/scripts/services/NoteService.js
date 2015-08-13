@@ -8,44 +8,69 @@
  * Factory in the angularNotesApp.
  */
 angular.module('angularNotesApp')
-  .factory('NoteService', function ($window, $filter) {
+  .factory('NoteService', function ($window, $filter, Note) {
+    var notes = [];
 
-    function Note(id, content, modifiedAt) {
-      this.id = id;
-      this.content = content;
-      this.modifiedAt = modifiedAt;
+    fetchAll();
+
+    function fetchAll() {
+      var notesFromLS = JSON.parse($window.localStorage.getItem('notes'));
+      if (notesFromLS) {
+        angular.forEach(notesFromLS, function (note) {
+          notes.push(new Note(note.id, note.content, note.modifiedAt));
+        });
+      }
+    }
+
+    function persist() {
+      $window.localStorage.setItem('notes', JSON.stringify(notes));
     }
 
     function findAll() {
-      var result = [];
-      var notes = JSON.parse($window.localStorage.getItem('notes'));
-      if (notes) {
-        angular.forEach(notes, function (note) {
-          result.push(new Note(note.id, note.content, note.modifiedAt));
-        });
-      }
-      return result;
+      return notes;
     }
 
     function saveOrUpdate(noteToBeSaved) {
-      var notes = findAll();
       var note;
-      if (!noteToBeSaved.id) {
-        note = new Note(notes.length + 1, noteToBeSaved.content, new Date());
-        notes.push(note);
-      } else {
-        note = $filter('filter')(notes, {id: noteToBeSaved.id}, true)[0];
-        if (note && note.content !== noteToBeSaved.content) {
-          note.content = noteToBeSaved.content;
-          note.modifiedAt = new Date();
+      if (noteToBeSaved) {
+        if (!noteToBeSaved.id) {
+          // saving new note
+          note = new Note(notes.length + 1, noteToBeSaved.content, new Date());
+          notes.push(note);
+          persist();
+        } else {
+            // updating note
+          note = $filter('filter')(notes, {id: noteToBeSaved.id}, true)[0];
+          if (note && note.content !== noteToBeSaved.content) {
+            note.content = noteToBeSaved.content;
+            note.modifiedAt = new Date();
+            persist();
+          }
         }
       }
-      $window.localStorage.setItem('notes', JSON.stringify(notes));
+      return note;
+    }
+
+    function remove(noteToBeDeleted) {
+      var index = notes.indexOf(noteToBeDeleted);
+      if (index !== -1) {
+        notes.splice(index, 1);
+        persist();
+      }
+      return index;
+    }
+
+    function create() {
+      var note = new Note(notes.length + 1, '', new Date());
+      notes.push(note);
+      persist();
       return note;
     }
 
     return {
       findAll: findAll,
-      saveOrUpdate: saveOrUpdate
+      saveOrUpdate: saveOrUpdate,
+      remove: remove,
+      create: create
     };
   });

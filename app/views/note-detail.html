@@ -4,9 +4,9 @@
   </div>
   <div class="col-sm-4">
     <div class="btn-group pull-right">
-      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span>
+      <button type="button" class="btn btn-default" ng-click="deleteNote(selectedNote)"><span class="glyphicon glyphicon-trash"></span>
       </button>
-      <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span>
+      <button type="button" class="btn btn-default" ng-click="createNote()"><span class="glyphicon glyphicon-pencil"></span>
       </button>
     </div>
   </div>
@@ -14,6 +14,6 @@
 <div class="row full-height" ng-click="setEditMode(true)">
   <div class="col-sm-12 full-height editor-outer">
     <div class="editor-preview" ng-hide="editMode" ng-bind-html="selectedNote.content | newLine | highlightText:search.keyword"></div>
-    <textarea class="editor" ng-model="selectedNote.content" ng-show="editMode" ng-blur="saveOrUpdateNote(selectedNote)"></textarea>
+    <textarea class="editor" ng-model="editingNote.content" ng-show="editMode" ng-blur="saveOrUpdateNote(editingNote)"></textarea>
   </div>
 </div>
