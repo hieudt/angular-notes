@@ -32,7 +32,7 @@ angular.module('angularNotesApp')
 
     function selectNote(note) {
       $scope.selectedNote = note;
-      setEditMode(!$scope.search.keyword);
+      setEditMode(false);
     }
 
     function saveOrUpdateNote(note) {
@@ -48,6 +48,7 @@ angular.module('angularNotesApp')
 
     function createNote() {
       $scope.selectedNote = NoteService.create();
+      $scope.search.keyword = '';
       setEditMode(true);
     }
   });
